@@ -1,0 +1,113 @@
+.wrapp {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+input {
+  padding: 10px;
+  border-radius: 5px;
+  outline: none;
+  font-weight: 600;
+  color: white;
+  border: none;
+  background-color: gray;
+}
+input::placeholder {
+  color: rgba(60, 60, 61, 0.623);
+}
+button {
+  padding: 8px;
+  margin: 0px 0px 0px 5px;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  font-weight: 500;
+  color: black;
+  background-color: gray;
+}
+button:focus {
+  color: white;
+}
+.cards {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+/* ?blog */
+.card {
+  margin: 30px auto;
+  width: 250px;
+  height: 250px;
+  border-radius: 20px;
+  box-shadow: 5px 5px 30px 7px rgba(0, 0, 0, 0.25),
+    -5px -5px 30px 7px rgba(0, 0, 0, 0.22);
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+.card .card_image {
+  width: inherit;
+  height: inherit;
+  border-radius: 20px;
+}
+
+.card .card_image img {
+  width: inherit;
+  height: inherit;
+  border-radius: 20px;
+  object-fit: cover;
+}
+
+.card .card_title {
+  text-align: center;
+  border-radius: 0px 0px 40px 40px;
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 30px;
+  margin-top: -80px;
+  height: 40px;
+}
+
+/* .card:hover {
+  transform: scale(0.9, 0.9);
+  box-shadow: 5px 5px 30px 15px rgba(0, 0, 0, 0.25),
+    -5px -5px 30px 15px rgba(0, 0, 0, 0.22);
+} */
+
+.title-white {
+  color: white;
+}
+
+.title-black {
+  color: black;
+}
+
+@media all and (max-width: 500px) {
+  .card-list {
+    /* On small screens, we are no longer using row direction but column */
+    flex-direction: column;
+  }
+}
+.details {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  background-color: gray;
+  width: inherit;
+  height: -200px;
+  opacity: 0.9;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+.details > button {
+  padding: 5px;
+  background-color: #282c34;
+  cursor: pointer;
+  color: white;
+  border: none;
+  outline: none;
+}

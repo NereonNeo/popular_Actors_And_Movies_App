@@ -1,0 +1,27 @@
+.nav {
+  width: initial;
+  background-color: gray;
+  height: 50px;
+  border: 2px solid gray;
+  /* border-radius: 2px; */
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0px 10px 0px 10px;
+}
+.navComponent {
+  padding: 2px 5px 2px 5px;
+  margin: 5px 5px 5px 5px;
+}
+.fas,
+.fab,
+.far {
+  color: white;
+}
+.fas:hover,
+.fab:hover,
+.far:hover {
+  color: #282c34;
+}

@@ -111,3 +111,19 @@ button:focus {
   border: none;
   outline: none;
 }
+.buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px;
+}
+.buttons button {
+  margin: 5px !important;
+  margin-left: 20px !important;
+}
+.info {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 700;
+  margin-top: 5px;
+}

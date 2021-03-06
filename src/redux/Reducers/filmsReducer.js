@@ -1,7 +1,8 @@
-import { GETPOPULARACTORS, PLUSMOREACTORS } from '../types';
+import { GETPOPULARACTORS, PLUSMOREACTORS, MOVIEINFO, TVINFO } from '../types';
 
 const initialState = {
-  film: [],
+  topFilm: [],
+  topTv: [],
   actors: [],
 };
 
@@ -17,6 +18,16 @@ export const filmsReducer = (state = initialState, action) => {
       return {
         ...state,
         actors: state.actors.concat(action.payload),
+      };
+    case MOVIEINFO:
+      return {
+        ...state,
+        topFilm: state.topFilm.concat(action.payload),
+      };
+    case TVINFO:
+      return {
+        ...state,
+        topTv: state.topTv.concat(action.payload),
       };
     default:
       return state;

@@ -7,16 +7,23 @@ import Hot from './Components/Hot';
 import Liked from './Components/Liked';
 import SavePage from './Components/SavePage';
 import { useEffect } from 'react';
-import { getPopularActors } from './redux/actions/filmsAcrtion';
+import {
+  getPopularActors,
+  getTopMovie,
+  getTopTV,
+} from './redux/actions/filmsAcrtion';
 function App() {
+  const dispatch = useDispatch();
   // const state = useSelector((state) => state.app.switcher);
   // const dispatch = useDispatch();
   // const handlerSwitch = () => {
   //   dispatch(switcherFC());
   // };
-  const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(getPopularActors());
+    dispatch(getTopMovie());
+    dispatch(getTopTV());
   }, []);
 
   return (

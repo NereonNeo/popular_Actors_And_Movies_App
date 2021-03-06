@@ -1,15 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getPopularActorsMore } from '../redux/actions/filmsAcrtion';
 
 const ActorsMap = () => {
-  let cd = [];
   const dispatch = useDispatch();
   const state = useSelector((state) => state.Allfilms.actors);
 
   function handlerMore() {
     dispatch(getPopularActorsMore());
-    cd = state.filter((x) => x.gender === 1);
+  }
+  function noMore() {
+    console.log('Test');
   }
   return (
     <>
@@ -22,12 +23,13 @@ const ActorsMap = () => {
                   <div className="card_image">
                     <img
                       src={`https://image.tmdb.org/t/p/original${elem.profile_path}`}
+                      alt={`img-${elem.name}`}
                     />
                   </div>
                   <div className="card_title title-white"></div>
                   <div className="details">
                     <h3>{elem.name}</h3>
-                    <button onClick={() => console.log(elem.id)}>More</button>
+                    <button onClick={noMore}>More</button>
                   </div>
                 </div>
               </div>

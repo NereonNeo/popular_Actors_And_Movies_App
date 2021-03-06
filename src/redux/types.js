@@ -1,3 +1,5 @@
 export const ONSWITCH = 'ONSWITCH';
 export const GETPOPULARACTORS = 'GETPOPULARACTORS';
 export const PLUSMOREACTORS = 'PLUSMOREACTORS';
+export const TVINFO = 'TVINFO';
+export const MOVIEINFO = 'MOVIEINFO';

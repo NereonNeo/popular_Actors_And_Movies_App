@@ -1,4 +1,4 @@
-import { GETPOPULARACTORS, PLUSMOREACTORS } from '../types';
+import { GETPOPULARACTORS, PLUSMOREACTORS, MOVIEINFO, TVINFO } from '../types';
 
 export function getPopularActors() {
   return async (dispatch) => {
@@ -25,6 +25,32 @@ export function getPopularActorsMore() {
         .then((data) =>
           dispatch({ type: PLUSMOREACTORS, payload: data.results })
         );
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
+export function getTopMovie() {
+  return async (dispatch) => {
+    try {
+      await fetch(
+        'https://api.themoviedb.org/3/trending/movie/day?api_key=2bbb5d3e3e46103441594cbbedb59e3c'
+      )
+        .then((res) => res.json())
+        .then((data) => dispatch({ type: MOVIEINFO, payload: data.results }));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
+export function getTopTV() {
+  return async (dispatch) => {
+    try {
+      await fetch(
+        'https://api.themoviedb.org/3/trending/tv/day?api_key=2bbb5d3e3e46103441594cbbedb59e3c'
+      )
+        .then((res) => res.json())
+        .then((data) => dispatch({ type: TVINFO, payload: data.results }));
     } catch (error) {
       console.log(error);
     }

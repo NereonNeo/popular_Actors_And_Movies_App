@@ -1,18 +1,15 @@
-import React, { useEffect, useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { getTopMovie } from '../redux/actions/filmsAcrtion';
+import React from 'react';
+import { useSelector } from 'react-redux';
 
-const FilmsMap = () => {
-  const dispatch = useDispatch();
-  const state = useSelector((state) => state.Allfilms.topFilm);
+const TvTop = () => {
+  const topTv = useSelector((state) => state.Allfilms.topTv);
   function handlerMore() {
     console.log('Nice its work');
   }
-
   return (
-    <>
+    <div>
       <div className="cards">
-        {state.map((elem, index) => {
+        {topTv.map((elem, index) => {
           return (
             <div key={elem.id}>
               <div className="wrap">
@@ -20,20 +17,18 @@ const FilmsMap = () => {
                   <div className="card_image">
                     <img
                       src={`https://image.tmdb.org/t/p/original${elem.poster_path}`}
-                      alt={elem.title}
+                      alt={elem.name}
                     />
                   </div>
                   <div className="card_title title-white"></div>
                   <div className="details">
                     <h3>
-                      {elem.title.length >= 15
-                        ? elem.title.slice(0, 10)
-                        : elem.title}
+                      {elem.name.length > 17
+                        ? elem.name.slice(0, 10)
+                        : elem.name}
                     </h3>
                     <button onClick={handlerMore}>More</button>
-                    <div>
-                      <p>№ {index + 1}</p>
-                    </div>
+                    <p>№ {index + 1}</p>
                   </div>
                 </div>
               </div>
@@ -41,8 +36,8 @@ const FilmsMap = () => {
           );
         })}
       </div>
-    </>
+    </div>
   );
 };
 
-export default FilmsMap;
+export default TvTop;

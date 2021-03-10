@@ -127,3 +127,11 @@ button:focus {
   font-weight: 700;
   margin-top: 5px;
 }
+.details {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row-reverse;
+  box-sizing: border-box;
+  overflow: hidden;
+  color: white;
+}

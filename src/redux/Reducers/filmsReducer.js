@@ -1,9 +1,18 @@
-import { GETPOPULARACTORS, PLUSMOREACTORS, MOVIEINFO, TVINFO } from '../types';
+import {
+  GETPOPULARACTORS,
+  PLUSMOREACTORS,
+  MOVIEINFO,
+  TVINFO,
+  SAVEPAGEFORACTORS,
+  SAVEPAGEFORTVS,
+  SAVEPAGEFORFILMS,
+} from '../types';
 
 const initialState = {
   topFilm: [],
   topTv: [],
   actors: [],
+  savePage: [],
 };
 
 export const filmsReducer = (state = initialState, action) => {
@@ -28,6 +37,24 @@ export const filmsReducer = (state = initialState, action) => {
       return {
         ...state,
         topTv: state.topTv.concat(action.payload),
+      };
+    case SAVEPAGEFORACTORS:
+      return {
+        ...state,
+        savePage: state.actors.filter((x) => x.id === action.payload),
+        // savePage: state.topTv.filter((x) => x.id === action.payload),
+        // savePage: state.topFilm.filter((x) => x.id === action.payload),
+      };
+    case SAVEPAGEFORTVS:
+      return {
+        ...state,
+        savePage: state.topTv.filter((x) => x.id === action.payload),
+        // savePage: state.topFilm.filter((x) => x.id === action.payload),
+      };
+    case SAVEPAGEFORFILMS:
+      return {
+        ...state,
+        savePage: state.topFilm.filter((x) => x.id === action.payload),
       };
     default:
       return state;

@@ -1,6 +1,10 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getPopularActorsMore } from '../redux/actions/filmsAcrtion';
+import {
+  getPopularActorsMore,
+  savePageForActors,
+} from '../redux/actions/filmsAcrtion';
+import { Link } from 'react-router-dom';
 
 const ActorsMap = () => {
   const dispatch = useDispatch();
@@ -9,8 +13,9 @@ const ActorsMap = () => {
   function handlerMore() {
     dispatch(getPopularActorsMore());
   }
-  function noMore() {
-    console.log('Test');
+  function noMore(id) {
+    console.log('Actors:', id);
+    dispatch(savePageForActors(id));
   }
   return (
     <>
@@ -18,21 +23,24 @@ const ActorsMap = () => {
         {state.map((elem, index) => {
           return (
             <div key={elem.id}>
-              <div className="wrap">
-                <div className="card 2" onClick={() => console.log(elem.id)}>
-                  <div className="card_image">
-                    <img
-                      src={`https://image.tmdb.org/t/p/original${elem.profile_path}`}
-                      alt={`img-${elem.name}`}
-                    />
-                  </div>
-                  <div className="card_title title-white"></div>
-                  <div className="details">
-                    <h3>{elem.name}</h3>
-                    <button onClick={noMore}>More</button>
+              <Link to="/info">
+                <div className="wrap">
+                  <div className="card 2" onClick={() => noMore(elem.id)}>
+                    <div className="card_image">
+                      <img
+                        src={`https://image.tmdb.org/t/p/original${elem.profile_path}`}
+                        alt={`img-${elem.name}`}
+                      />
+                    </div>
+                    <div className="card_title title-white"></div>
+                    <div className="details">
+                      <h3>{elem.name}</h3>
+                      <p>№ {index + 1}</p>
+                      {/* <button onClick={() => noMore(elem.id)}>More</button> */}
+                    </div>
                   </div>
                 </div>
-              </div>
+              </Link>
             </div>
           );
         })}

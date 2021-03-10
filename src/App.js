@@ -4,7 +4,6 @@ import Header from './Components/Header';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Search from './Components/Search';
 import Hot from './Components/Hot';
-import Liked from './Components/Liked';
 import SavePage from './Components/SavePage';
 import { useEffect } from 'react';
 import {
@@ -12,6 +11,7 @@ import {
   getTopMovie,
   getTopTV,
 } from './redux/actions/filmsAcrtion';
+import Info from './Components/Info';
 function App() {
   const dispatch = useDispatch();
   // const state = useSelector((state) => state.app.switcher);
@@ -35,7 +35,7 @@ function App() {
             <Switch>
               <Route exact path="/" component={Search} />
               <Route exact path="/hot" component={Hot} />
-              <Route exact path="/info" component={Liked} />
+              <Route exact path="/info" component={Info} />
               <Route exact path="/savePage" component={SavePage} />
             </Switch>
           </div>

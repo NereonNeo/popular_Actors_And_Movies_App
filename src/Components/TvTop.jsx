@@ -1,10 +1,13 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { savePageForTv } from '../redux/actions/filmsAcrtion';
 
 const TvTop = () => {
+  const dispatch = useDispatch();
   const topTv = useSelector((state) => state.Allfilms.topTv);
-  function handlerMore() {
-    console.log('Nice its work');
+  function handlerMore(id) {
+    console.log('Tv:', id);
+    dispatch(savePageForTv(id));
   }
   return (
     <div>
@@ -13,7 +16,7 @@ const TvTop = () => {
           return (
             <div key={elem.id}>
               <div className="wrap">
-                <div className="card 2" onClick={() => console.log(elem.id)}>
+                <div className="card 2" onClick={() => handlerMore(elem.id)}>
                   <div className="card_image">
                     <img
                       src={`https://image.tmdb.org/t/p/original${elem.poster_path}`}
@@ -23,11 +26,10 @@ const TvTop = () => {
                   <div className="card_title title-white"></div>
                   <div className="details">
                     <h3>
-                      {elem.name.length > 17
-                        ? elem.name.slice(0, 10)
+                      {elem.name.length > 20
+                        ? elem.name.slice(0, 18)
                         : elem.name}
                     </h3>
-                    <button onClick={handlerMore}>More</button>
                     <p>№ {index + 1}</p>
                   </div>
                 </div>

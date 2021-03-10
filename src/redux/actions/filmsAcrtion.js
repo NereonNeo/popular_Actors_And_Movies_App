@@ -1,4 +1,12 @@
-import { GETPOPULARACTORS, PLUSMOREACTORS, MOVIEINFO, TVINFO } from '../types';
+import {
+  GETPOPULARACTORS,
+  PLUSMOREACTORS,
+  MOVIEINFO,
+  TVINFO,
+  SAVEPAGEFORACTORS,
+  SAVEPAGEFORFILMS,
+  SAVEPAGEFORTVS,
+} from '../types';
 
 export function getPopularActors() {
   return async (dispatch) => {
@@ -54,5 +62,23 @@ export function getTopTV() {
     } catch (error) {
       console.log(error);
     }
+  };
+}
+export function savePageForActors(id) {
+  return {
+    type: SAVEPAGEFORACTORS,
+    payload: id,
+  };
+}
+export function savePageForFilms(id) {
+  return {
+    type: SAVEPAGEFORFILMS,
+    payload: id,
+  };
+}
+export function savePageForTv(id) {
+  return {
+    type: SAVEPAGEFORTVS,
+    payload: id,
   };
 }

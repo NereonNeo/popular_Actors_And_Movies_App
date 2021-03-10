@@ -38,11 +38,11 @@ const Search = () => {
           </div>
         </div>
         <div className="films-map">
-          {/* <Switch>
+          <Switch>
             <Route exact path="/topMovie" component={FilmsMap} />
             <Route exact path="/topTv" component={TvTop} />
-          </Switch> */}
-          <FilmsMap />
+          </Switch>
+          {/* <FilmsMap /> */}
           {/* <h2>Films of the week</h2>
           <FilmsMap /> */}
         </div>
